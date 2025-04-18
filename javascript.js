@@ -27,29 +27,29 @@ let humanScore = 0;
 let computerScore = 0;
 function playGame () {
  const playRounds = function playRound(humanChoice, computerChoice) {
-  if (humanChoice === "rock" && computerChoice === "rock") {
+  if (humanChoice = "rock" && computerChoice === "rock") {
    console.log("both chose rock " + noWin + "");
-  } else if (humanChoice === "rock" && computerChoice === "paper") {
+  } else if (humanChoice = "rock" && computerChoice === "paper") {
     console.log("computer chose paper " + computerWin + "");
     computerScore += 1;
-  } else if (humanChoice === "rock" && computerChoice === "scissors") {
+  } else if (humanChoice = "rock" && computerChoice === "scissors") {
     console.log("computer chose scissors " + humanWin + "" );
     humanScore += 1;
-  } else if (humanChoice === "paper" && computerChoice === "rock") {
+  } else if (humanChoice = "paper" && computerChoice === "rock") {
     console.log("computer chose rock " + humanWin + "");
     humanScore += 1;
-  } else if (humanChoice === "paper" && computerChoice === "paper") {
+  } else if (humanChoice = "paper" && computerChoice === "paper") {
     console.log("both chose paper " + noWin + "" );
-  } else if (humanChoice === "paper" && computerChoice === "scissors") {
+  } else if (humanChoice = "paper" && computerChoice === "scissors") {
     console.log("computer chose scissors " + computerWin + "");
     computerScore += 1;
-  } else if (humanChoice === "scissors" && computerChoice === "rock") {
+  } else if (humanChoice = "scissors" && computerChoice === "rock") {
     console.log("computer chose rock " + computerWin + "" );
     computerScore += 1;
-  } else if (humanChoice === "scissors" && computerChoice === "paper") {
+  } else if (humanChoice = "scissors" && computerChoice === "paper") {
     console.log("computer chose paper " + humanWin + "");
     humanScore += 1;
-  } else if (humanChoice === "scissors" && computerChoice === "scissors") {
+  } else if (humanChoice = "scissors" && computerChoice === "scissors") {
     console.log("both chose scissors " + noWin + "" );
   }
   }  
@@ -74,11 +74,11 @@ let computerFinalScore = computerScore;
 
 function gameWinner () {
   if (humanFinalScore >  computerFinalScore) {
-    console.log("you win!");
+    console.log("computer score is, " + computerScore + " your score is " + humanScore + " you win!");
   } else if (humanFinalScore < computerFinalScore) {
-    console.log("computer wins!")
+    console.log("computer score is, " + computerScore + " your score is " + humanScore + " computer wins!")
   } else {
-   console.log("it's a tie!");
+   console.log("computer score is, " + computerScore + " your score is " + humanScore + " it's a tie!");
  }
 }
 
