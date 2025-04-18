@@ -6,6 +6,120 @@
   <title>rock paper scissors</title>
 </head>
 <body>
-  <script src="javascript.js"></script>
+  <div id="container">
+  <h1 id ="round"></h1>
+  <div id="buttons">
+    <button id="rock">rock</button>
+    <button id="paper">paper</button>
+    <button id="scissors">scissors</button>
+    <button id="play">click to play</button> 
+   </div>
+    <p id="win"></p>
+    <p id="score1"></p>
+    <p id="score2"></p>
+    </div>
+    <script>
+      let choices = ["rock", "paper", "scissors"];
+function getComputerChoice () { 
+//get random index from array
+let index = Math.floor(Math.random() * choices.length);
+//select random value from array
+let result = choices[index];
+return result;
+}
+
+const humanWon = "you have the highest score, you win!";
+const computerWon = "compute has the highest score, computer wins!"
+const humanWin = "human wins";
+const computerWin = "computer wins";
+const noWin = "no one wins.";
+
+let humanScore = 0;
+let computerScore = 0;
+let rounds = 0;
+let play = document.querySelector("#play");
+let btn = document.querySelector('#buttons');
+let container = document.querySelector('#container');
+let p = document.querySelector("p");
+let score1 = document.querySelector("#score1");
+let score2 = document.querySelector("#score2");
+let round = document.querySelector("#round");
+let win = document.querySelector("#win");
+
+play.addEventListener("click", playRound);
+
+function playRound (humanChoice, computerChoice) {
+btn.addEventListener('click', (event) => {
+  let target = event.target;
+  let humanChoice = target.id;
+  let computerChoice = getComputerChoice();
+  if (humanChoice = "rock" && computerChoice === "rock") {
+   p.textContent = "both chose rock " + noWin + "";
+  } else if (humanChoice = "rock" && computerChoice === "paper") {
+   p.textContent = "computer chose paper " + computerWin + "";
+    computerScore += 1;
+  } else if (humanChoice = "rock" && computerChoice === "scissors") {
+   p.textContent = "computer chose scissors " + humanWin + "" ;
+    humanScore += 1;
+  } else if (humanChoice = "paper" && computerChoice === "rock") {
+   p.textContent = "computer chose rock " + humanWin + "";
+    humanScore += 1;
+  } else if (humanChoice = "paper" && computerChoice === "paper") {
+    p.textContent = "both chose paper " + noWin + "";
+  } else if (humanChoice = "paper" && computerChoice === "scissors") {
+    p.textContent = "computer chose scissors " + computerWin + "";
+    computerScore += 1;
+  } else if (humanChoice = "scissors" && computerChoice === "rock") {
+    p.textContent = "computer chose rock " + computerWin + "";
+    computerScore += 1;
+  } else if (humanChoice = "scissors" && computerChoice === "paper") {
+    p.textContent = "computer chose paper " + humanWin + "";
+    humanScore += 1;
+  } else if (humanChoice = "scissors" && computerChoice === "scissors") {
+    p.textContent = "both chose scissors " + noWin + "" ;
+  }
+  container.appendChild(p); 
+  
+   rounds += 1;
+   let humanFinalScore =  humanScore;
+   let computerFinalScore = computerScore;
+   let roundNo = rounds;
+
+   if (humanFinalScore === 5) {
+     win.textContent = "you win!";
+   } else if (computerFinalScore === 5) {
+     win.textContent = "computer wins!";
+   }
+   round.textContent = "ROUND " + roundNo + " ";
+   score1.textContent = "your score:" + humanFinalScore + "";
+   score2.textContent = "computer score:" + computerFinalScore + "";
+   container.appendChild(score1);
+   container.appendChild(score2);
+   container.appendChild(round);
+   container.appendChild(win);
+  });
+}
+
+
+
+
+
+
+
+
+ 
+
+
+//PROBLEM: Loop runs infinitely, and cannot exit even using break.
+//SOLUTION: do not run loop inside func, loop it outside and also loop playGame, not playRounds.
+
+//PROBLEM: the score that is printed will always be 0 or 1, because the function and score resets every iteration.
+//SOLUTION: log the scores in the loop, also use += instead of ++ to reassign score every time.
+
+//array in both uppercase and lowercase//const upperCase = choices.map(map => map.toUpperCase());
+//const lowerCase = choices.map(map => map.toLowerCase());
+
+//just turn === to = for no restriction      
+    </script>
 </body>
 </html>
